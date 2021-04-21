@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2021 at 01:34 PM
+-- Generation Time: Apr 21, 2021 at 05:58 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.15
 
@@ -179,7 +179,7 @@ CREATE TABLE `classseven` (
 INSERT INTO `classseven` (`id`, `subject`, `uid`) VALUES
 (1, 'Bangla', '1008'),
 (2, 'English for Today', ''),
-(3, 'Mathematics', ''),
+(3, 'Mathematics', '100'),
 (4, 'Science', ''),
 (5, 'Physical Education', '');
 
@@ -201,10 +201,10 @@ CREATE TABLE `classsix` (
 
 INSERT INTO `classsix` (`id`, `subject`, `uid`) VALUES
 (1, 'Bangla', '1008'),
-(2, 'English for Today', ''),
-(3, 'Agriculture Studies', ''),
-(4, 'Mathematics', ''),
-(5, 'Science', '');
+(2, 'English for Today', '1008'),
+(3, 'Agriculture Studies', '1008'),
+(4, 'Mathematics', '1008'),
+(5, 'Science', '1008');
 
 -- --------------------------------------------------------
 
@@ -263,7 +263,7 @@ CREATE TABLE `issuebook` (
   `issuedate` varchar(20) NOT NULL,
   `duedate` varchar(20) NOT NULL,
   `returndate` varchar(20) NOT NULL,
-  `fine` float NOT NULL
+  `fine` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -271,18 +271,12 @@ CREATE TABLE `issuebook` (
 --
 
 INSERT INTO `issuebook` (`id`, `bid`, `uid`, `issuedate`, `duedate`, `returndate`, `fine`) VALUES
-(1, '10', '1008', '15-4-2020', '25-4-2020', '27-4-2020', 0),
-(2, '11', '1008', '16-4-2020', '26-4-2020', '23-4-2020', 0),
-(3, '13', '1008', '15-4-2020', '26-4-2020', '26-4-2020', 0),
-(5, '100', '1008', '15-4-2020', '26-4-2020', '26-4-2020', 0),
-(6, '102', '1008', '15-4-2020', '30-4-2020', '30-4-2020', 0),
-(7, '107', '1008', '15-4-2020', '30-4-2020', '30-4-2020', 0),
-(8, '102', '1008', '15-4-2020', '30-4-2020', '30-4-2020', 0),
-(9, '107', '1008', '15-4-2020', '30-4-2020', '30-4-2020', 0),
-(10, '10', '1008', '15-4-2020', '25-4-2020', '27-4-2020', 0),
-(11, '13', '1008', '15-4-2020', '26-4-2020', '26-4-2020', 0),
-(12, '100', '1008', '15-4-2020', '26-4-2020', '26-4-2020', 0),
-(13, '11', '1008', '16-4-2020', '26-4-2020', '23-4-2020', 0);
+(1, '10', '1008', '15-4-2020', '25-4-2020', '27-4-2020', NULL),
+(2, '11', '1008', '16-4-2020', '26-4-2020', '23-4-2020', NULL),
+(3, '13', '1008', '15-4-2020', '26-4-2020', '26-4-2020', NULL),
+(5, '100', '1008', '15-4-2020', '26-4-2020', '26-4-2020', NULL),
+(6, '102', '1008', '15-4-2020', '30-4-2020', '30-4-2020', NULL),
+(7, '107', '1008', '15-4-2020', '30-4-2020', '30-4-2020', NULL);
 
 -- --------------------------------------------------------
 
@@ -335,9 +329,7 @@ INSERT INTO `login` (`uid`, `password`, `type`, `status`) VALUES
 ('1006', 'Shusmita123@', 't', 'p'),
 ('1007', 'Asif123@', 'l', 'p'),
 ('1008', 'TOWSIF@@@@', 't', 'a'),
-('1009', 'towsif@@@@', 't', 'p'),
-('1010', 'towsif@@@@', 't', 'p'),
-('1011', 'TOWSIF@@@@', 't', 'p');
+('1009', 'TOWSIF@@@@', 't', 'p');
 
 -- --------------------------------------------------------
 
@@ -360,8 +352,9 @@ CREATE TABLE `result` (
 --
 
 INSERT INTO `result` (`id`, `uid`, `class`, `subject`, `mid`, `final`, `tid`) VALUES
-(74, '1002', 6, 'Bangla', 95, 90, '1008'),
-(77, '1001', 6, 'Bangla', 70, 80, '1008');
+(81, '1001', 6, 'Bangla', 100, 100, '1008'),
+(85, '1002', 6, 'Agriculture Studies', 90, 100, '1008'),
+(87, '1002', 6, 'Bangla', 90, 100, '1008');
 
 -- --------------------------------------------------------
 
@@ -412,9 +405,14 @@ CREATE TABLE `studentnote` (
 --
 
 INSERT INTO `studentnote` (`id`, `uid`, `subject`, `class`, `note`) VALUES
-(1, '1008', 'Bangla', 6, 'Screenshot (14).png'),
-(2, '1008', 'Bangla', 6, 'A Survey on Blockchain for Big DataApproaches, Opportunities, and Future Directions (2).pdf'),
-(3, '1008', 'Bangla', 7, '18-36245-1  Class test.pdf');
+(7, '1008', 'Bangla', 6, 'Lecture-10.pdf'),
+(8, '1008', 'Bangla', 7, 'Association RulesSupport.pdf'),
+(9, '1008', 'Bangla', 6, '18-36245-1(Quiz 2).pdf'),
+(10, '1008', 'Bangla', 6, 'New Text Document.txt'),
+(11, '1008', 'Bangla', 6, 'New Text Document.txt'),
+(12, '1008', 'Bangla', 6, 'New Text Document.txt'),
+(13, '1008', 'Bangla', 6, 'New Text Document.txt'),
+(14, '1008', 'Bangla', 7, '18-36245-1 Refat,Towsif(Quiz-2).pdf');
 
 -- --------------------------------------------------------
 
@@ -436,9 +434,10 @@ CREATE TABLE `studentnotice` (
 --
 
 INSERT INTO `studentnotice` (`id`, `class`, `subject`, `title`, `notice`, `uid`) VALUES
-(1, 6, 'Bangla', '1.Quiz 1', 'Lecture 1,2,3', '1008'),
-(6, 10, 'Bangla', 'quiz', 'Chapter 1', '1008'),
-(7, 6, 'Bangla', 'QUIZ', 'LECTURE 5', '1008');
+(9, 6, 'Agriculture Studies', 'Welcome to Spring 20-21', 'You will be added in MS Teams soon', '1008'),
+(10, 6, 'Bangla', 'Quiz 1', 'Lecture 1,2', '1008'),
+(11, 6, 'Bangla', 'jhhhhhhhh', 'lecture 1', '1008'),
+(12, 6, 'English for Today', 'jhhhhhhhh', 'dddddd', '1008');
 
 -- --------------------------------------------------------
 
@@ -468,10 +467,8 @@ INSERT INTO `teacher` (`id`, `uid`, `name`, `fname`, `mname`, `address`, `email`
 (1, '1004', 'Asif Ahmed', 'Mr Xx', 'Mrs Y', 'Dhaka, Bangladesh', 'example@gmail.com', 'Male', '2021-04-09', 0, 'pp.png'),
 (2, '1005', 'Nizam Uddin', 'Mr Xx', 'Mrs Y', 'Dhaka, Bangladesh', 'example@gmail.com', 'Male', '2021-04-09', 0, 'pp.png'),
 (3, '1006', 'Shusmita Islam', 'Mr Xx', 'Mrs Y', 'Nikunja-2,Kuril, Dhaka', 'example@gmail.com', 'Female', '2021-04-09', 0, 'pp.png'),
-(4, '1008', 'Towsif  Refat', 'Hafizur Rahman', 'Rebeka Rahman', 'Dhaka', 'towsifrifat@gmail.com', 'Male', '2000-01-01', 0, 'Screenshot (12).png'),
-(15, '1009', 'Towsif  Refat', 'Mr abc', 'Mrs abc', 'Dhaka', 'towsifrefat@yahoo.com', 'Male', '2000-01-01', 0, 'Screenshot (20).png'),
-(16, '1010', 'Towsif n', 'Hafizur m', ' mm mm', 'Dhaka', 'towsifrefat@gmail.com', 'Male', '2000-01-01', 0, 'Screenshot (6).png'),
-(19, '1011', 'TOWSIF R', 'MM MM', ' MM FF', 'Dhaka', 'towsifrifat@gmail.com', 'Male', '1999-12-30', 0, 'Screenshot (13).png');
+(4, '1008', 'Towsif  Refat', 'Hafizur Rahman', 'Rebeka Rahman', 'Dhaka', 'towsifrifat@gmail.com', 'Male', '1999-12-31', 0, 'profile.jpg'),
+(20, '1009', 'Towsif Refat', 'Hafizur Rahman', ' Rebeka Rahman', 'Khulna', 'towsifrifat@gamil.com', 'Male', '2003-04-20', 0, '7.1.png');
 
 -- --------------------------------------------------------
 
@@ -682,7 +679,7 @@ ALTER TABLE `librarian`
 -- AUTO_INCREMENT for table `result`
 --
 ALTER TABLE `result`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `student`
@@ -694,19 +691,19 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `studentnote`
 --
 ALTER TABLE `studentnote`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `studentnotice`
 --
 ALTER TABLE `studentnotice`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `teachernotice`

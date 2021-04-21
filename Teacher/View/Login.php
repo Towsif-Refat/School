@@ -69,7 +69,7 @@ if(isset($FlashMessage)){
 <form method="post" onsubmit="return validateForm()">
 
   <div class="imgcontainer">
-    <img src="../image/login.jpg" alt="Avatar" class="avatar">
+    <img src="../Upload/login.jpg" alt="Avatar" class="avatar">
   </div>
 
   <div class="container">

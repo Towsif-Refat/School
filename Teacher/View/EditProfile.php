@@ -115,7 +115,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
       if(!empty($_FILES["picture"]["name"]))
       {
            // Image upload 
-    $target_dir = "image/";
+    $target_dir = "../Upload/";
     $target_file = $target_dir . basename($_FILES["picture"]["name"]);
     $uploadOk = 1;
     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -199,7 +199,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 			<tr>
 				<td>Name :</td>
 				<!-- <td>:</td> -->
-				<td><input name="name" type="text" value="<?php echo $data["name"];?>">
+				<td><input name="name" type="text" onkeyup="checkName()" value="<?php echo $data["name"];?>">
           <span class="error" id="errname"><?php echo $ename;?></span>
 
         </td>
@@ -234,7 +234,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 			<tr><td colspan="4"><hr/></td></tr>
 			<td>Father Name :</td>
-				<td><input name="fname" type="text" value="<?php echo $data["fname"];?>">
+				<td><input name="fname" type="text" onkeyup="checkFname()" value="<?php echo $data["fname"];?>">
           <span class="error" id="errfname"><?php echo $efname;?></span>
         </td>
 				
@@ -242,7 +242,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 			</tr>		
 			<tr><td colspan="4"><hr/></td></tr>
 			<td>Mother Name :</td>
-				<td><input name="mname" type="text" value="<?php echo $data["mname"];?>">
+				<td><input name="mname" type="text" onkeyup="checkMname()" value="<?php echo $data["mname"];?>">
           <span class="error" id="errmname"><?php echo $emname;?></span>
         </td>
 				
@@ -253,7 +253,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 				<td>Email :</td>
 				<!-- <td>:</td> -->
 				<td>
-					<input name="email" type="text" value="<?php echo $data["email"];?>">
+					<input name="email" type="text" onkeyup="checkEmail()" value=" <?php echo $data["email"];?>">
           <span class="error" id="erremail"><?php echo $eemail;?></span>
 				</td>
 				
@@ -263,7 +263,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 			<tr><td colspan="4"><hr/></td></tr>
 			<td>Address:</td>
 				<!-- <td>:</td> -->
-				<td><input name="address" type="text" value="<?php echo $data["address"];?>">
+				<td><input name="address" type="text" onkeyup="checkAdress()" value="<?php echo $data["address"];?>">
           <span class="error"  id="erraddress"><?php echo $eaddress;?></span>
         </td>
 				
@@ -304,6 +304,162 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 
 <script type="text/javascript">
+
+
+   function checkFname(){
+     var fname = document.Reg_Form.fname.value;
+      var nameRegex = /^[a-zA-Z-' ]*$/;
+     if(fname == "")
+      {
+        document.Reg_Form.fname.focus();
+        document.getElementById("errfname").innerHTML = "Father Name is required, Enter Full Name";
+        return false;
+       
+      }
+      else if(!nameRegex.test(fname))
+      {
+        document.Reg_Form.fname.focus();
+        document.getElementById("errfname").innerHTML = "At least two words and can only contain letters,period,dash";
+        return false;
+       
+      }
+      else if(+countWords(fname)<+2){
+        document.Reg_Form.fname.focus();
+        document.getElementById("errfname").innerHTML = "Father Name At least two words and can only contain letters,period,dash";
+        return false;
+
+        
+       
+      }
+     document.getElementById("errfname").innerHTML = "";
+  }
+  
+  function checkName(){
+     var name = document.Reg_Form.name.value;
+      var nameRegex = /^[a-zA-Z-' ]*$/;
+     if(name == "")
+      {
+        document.Reg_Form.name.focus();
+        document.getElementById("errname").innerHTML = "Name is required, Enter Full Name";
+        return false;
+      }
+      if(!nameRegex.test(name))
+      {
+        document.Reg_Form.name.focus();
+        document.getElementById("errname").innerHTML = "At least two words and can only contain letters,period,dash";
+        
+        return false;
+      }
+      if(+countWords(name)<+2){
+        document.Reg_Form.name.focus();
+        document.getElementById("errname").innerHTML = "Name At least two words and can only contain letters,period,dash";
+
+        
+        return false;
+      }
+
+   document.getElementById("errname").innerHTML = "";
+  }
+
+ 
+
+
+  function checkDob(){
+   var dob=document.Reg_Form.dob.value;
+   var myDate = new Date(dob);
+   var today = new Date();
+  
+  
+        if(dob == "")
+      {
+        document.Reg_Form.dob.focus();
+        document.getElementById("errdob").innerHTML = "Select your Date Of Birth";
+        return false;
+      }
+      else if(myDate > Date.now())
+      {
+        document.Teacher_Reg.dob.focus();
+        document.getElementById("errdob").innerHTML = "Future date cannot be selected";
+        return false;
+      }
+      else if(today.getFullYear() - myDate.getFullYear() < 18)
+      {
+        document.Student_Reg.dob.focus();
+        document.getElementById("errdob").innerHTML = "Eligibility 18 years ONLY.";
+        return false;
+      }
+  }
+
+
+function checkMname(){
+     var mname = document.Reg_Form.mname.value;
+      var nameRegex = /^[a-zA-Z-' ]*$/;
+         if(mname == "")
+      {
+        document.Reg_Form.mname.focus();
+        document.getElementById("errmname").innerHTML = "Mother Name is required, Enter Full Name";
+        return false;
+      }
+      else if(!nameRegex.test(mname))
+      {
+        document.Reg_Form.mname.focus();
+        document.getElementById("errmname").innerHTML = "At least two words and can only contain letters,period,dash";
+        return false;
+      }
+       if(+countWords(mname)<+2){
+        document.Reg_Form.mname.focus();
+        document.getElementById("errmname").innerHTML = "Mother Name At least two words and can only contain letters,period,dash";
+
+        
+        return false;
+      }
+       document.getElementById("errmname").innerHTML = "";
+
+  }
+
+  function countWords(str) {
+    return str.trim().split(/\s+/).length;
+  }
+   
+
+     function checkEmail(){
+      var email = document.Reg_Form.email.value;
+     var emailRegex = /^[A-Za-z0-9._]*\@[A-Za-z]*\.[A-Za-z]{2,5}$/;
+      if(email == "")
+      {
+        document.Reg_Form.email.focus();
+        document.getElementById("erremail").innerHTML = "Email is required";
+        return false;
+      }
+      else if(!emailRegex.test(email))
+      {
+        document.Reg_Form.email.focus();
+        document.getElementById("erremail").innerHTML = "Invalid email format. Format: example@something.com";
+        return false;
+      }
+      document.getElementById("erremail").innerHTML = "";
+
+  }
+
+
+    function checkAdress(){
+     var address = document.Reg_Form.address.value;
+     var addressRegex = /^[A-Za-z]+$/;
+      if(address == "")
+      {
+        document.Reg_Form.address.focus();
+        document.getElementById("erraddress").innerHTML = "Address is required!!";
+        return false;
+      }
+      else if(!addressRegex.test(address))
+      {
+        document.Reg_Form.address.focus();
+        document.getElementById("erraddress").innerHTML = "Use Letter Only";
+        return false;
+      }
+  document.getElementById("erraddress").innerHTML = "";
+  }
+
   function countWords(str) {
     return str.trim().split(/\s+/).length;
   }

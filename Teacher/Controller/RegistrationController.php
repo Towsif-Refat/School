@@ -144,7 +144,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
        }
 
       // Image upload 
-    $target_dir = "Upload/";
+    $target_dir = "../Upload/";
     $target_file = $target_dir . basename($_FILES["picture"]["name"]);
     $uploadOk = 1;
     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);

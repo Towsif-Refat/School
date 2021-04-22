@@ -38,7 +38,7 @@
 ?>
 
 <div id="ename" style="color: red;"></div>
-<form method="post" name="Reg_Form" onsubmit="return validation();" enctype="multipart/form-data" style="padding-top: 10px">
+<form method="post" name="Reg_Form" onsubmit=" return validation();" enctype="multipart/form-data" style="padding-top: 10px">
 
 
   <fieldset style="width: 1000px;" align="left">
@@ -115,7 +115,7 @@
   </div>
 
   <center>Already Register? <a href="Login.php">Login</a></center>
-  <center><a href="Registration.php">Back</a></center>
+  <center><a href="../../Home/Registration.php">Back</a></center>
   </form>
 </fieldset>
 
@@ -261,7 +261,7 @@ function checkMname(){
 
     function checkAdress(){
      var address = document.Reg_Form.address.value;
-     var addressRegex = /^[A-Za-z]+$/;
+     var addressRegex = /^[a-zA-Z0-9-., ?!]{4,}$/;
       if(address == "")
       {
         document.Reg_Form.address.focus();
@@ -271,7 +271,7 @@ function checkMname(){
       else if(!addressRegex.test(address))
       {
         document.Reg_Form.address.focus();
-        document.getElementById("erraddress").innerHTML = "Use Letter Only";
+        document.getElementById("erraddress").innerHTML = "Use at least 4 Letter ";
         return false;
       }
   document.getElementById("erraddress").innerHTML = "";
@@ -321,30 +321,30 @@ document.getElementById("errcpass").innerHTML = "";
 
    function checkImage()
     {
-      var picture = document.Teacher_Reg.picture.value;
+      var picture = document.Reg_Form.picture.value;
       var file_ext = /(\.jpg|\.jpeg|\.bmp|\.gif|\.png)$/i;
-      var size = document.getElementById("picture").files[0];
+      var size = document.getElementById("image").files[0];
 
       //Image
       if(picture == "")
       {
-        document.Teacher_Reg.picture.focus();
-        document.getElementById("errorBox").innerHTML = "Image is required";
+        document.Reg_Form.picture.focus();
+        document.getElementById("errimg").innerHTML = "Image is required";
         return false;
       }
       else if(!file_ext.exec(picture))
       {
-        document.getElementById("errorBox").innerHTML = "Extension not allowed, please choose a JPEG or PNG or JPG file.";
+        document.getElementById("errimg").innerHTML = "Extension not allowed, please choose a JPEG or PNG or JPG file.";
         return false;
       }
       else if (size.size > 4194304)
       {
-        document.getElementById("errorBox").innerHTML = "File size must not be greater than 4 MB";
+        document.getElementById("errimg").innerHTML = "File size must not be greater than 4 MB";
         return false;
       }
       else
       {
-        document.getElementById("errorBox").innerHTML = "";
+        document.getElementById("errimg").innerHTML = "";
       }
     }
 
@@ -392,9 +392,50 @@ document.getElementById("errcpass").innerHTML = "";
       document.getElementById("errgender").innerHTML="";
       document.getElementById("errdob").innerHTML="";
 
+
+      if(checkName()==false){
+        return false;
+      }
+
+       if(checkFname()==false){
+        return false;
+      }
+      
+      if(checkMname()==false){
+        return false;
+      }
+      
+       if(checkEmail()==false){
+        return false;
+      }
+
+
+       if(checkAdress()==false){
+        return false;
+      }
+
+      if(checkPassword()==false){
+        return false;
+      }
+
+
       if(checkConfirmPassword()==false){
         return false;
       }
+
+      if(checkImage()==false){
+        return false;
+      }
+
+
+      
+       if(checkDob()==false){
+        return false;
+      }
+
+      // if(checkConfirmPassword()==false){
+      //   return false;
+      // }
 
         
      // var nameRegex = /^[a-zA-Z-' ]*$/;
@@ -415,8 +456,8 @@ document.getElementById("errcpass").innerHTML = "";
      // // var pass =  document.getElementById("pass").value;
      //  var cpass = document.Reg_Form.cpass.value;
       var radiobutton = document.Reg_Form.gender.value;
-      var dob = document.Reg_Form.dob.value;
-      var image = document.Reg_Form.picture.value;
+     // var dob = document.Reg_Form.dob.value;
+     // var image = document.Reg_Form.picture.value;
       var errorflag=0;
       // var x = document.Reg_Form.x.value;
         console.log(countWords(name));
@@ -424,13 +465,13 @@ document.getElementById("errcpass").innerHTML = "";
    
     
       //Image
-      if(image == "")
-      {
-        document.Reg_Form.image.focus();
-        document.getElementById("errimg").innerHTML = "Select Your Image";
-       // var errorflag=1;
-        return false;
-      }
+      // if(image == "")
+      // {
+      //   document.Reg_Form.image.focus();
+      //   document.getElementById("errimg").innerHTML = "Select Your Image";
+      //  // var errorflag=1;
+      //   return false;
+      // }
       //Gender
       if(document.Reg_Form.gender[0].checked == false && document.Reg_Form.gender[1].checked == false && document.Reg_Form.gender[2].checked == false)
       {
@@ -440,13 +481,13 @@ document.getElementById("errcpass").innerHTML = "";
         return false;
       }
       //Date Of Birth
-      if(dob == "")
-      {
-        document.Reg_Form.dob.focus();
-        document.getElementById("errdob").innerHTML = "Select your Date Of Birth(MUST be 18 years old)";
-        //var errorflag=1;
-        return false;
-      }
+      // if(dob == "")
+      // {
+      //   document.Reg_Form.dob.focus();
+      //   document.getElementById("errdob").innerHTML = "Select your Date Of Birth(MUST be 18 years old)";
+      //   //var errorflag=1;
+      //   return false;
+      // }
 
     //   if(errorflag==1){
     //   return false;

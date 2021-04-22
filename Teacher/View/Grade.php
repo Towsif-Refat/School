@@ -44,11 +44,12 @@
           </select>
         </td>
         
-        <td><div id="classErr"></div></td>
+        <td><div id="classErr"><?php echo $class; ?></div></td>
         <td></td>
+         <td></td>
         
       </tr>   
-      <tr><td colspan="4"><hr/></td></tr>
+      <tr><td colspan="6"><hr/></td></tr>
       <tr>
         <td>Subjects</td>
         <td>:</td>
@@ -56,9 +57,11 @@
         <div id="subject"></div> 
         </td>
         <!-- <td></td> -->
-        <td><div id="subjectErr"></div></td>
+        <td><div id="subjectErr"><?php echo $subject; ?></div></td>
+         <td></td>
+          <td></td>
       </tr>   
-      <tr><td colspan="4"><hr/></td></tr>
+      <tr><td colspan="6"><hr/></td></tr>
       <tr>
         <td>Student Id</td>
         <td>:</td>
@@ -66,9 +69,11 @@
         <div id="sid"></div>
         </td>
         <!-- <td></td> -->
-        <td><div id="sidErr"></div></td>
+        <td><div id="sidErr"><?php echo $sid; ?></div></td>
+         <td></td>
+          <td></td>
       </tr>   
-      <tr><td colspan="4"><hr/></td></tr>
+      <tr><td colspan="6"><hr/></td></tr>
       <tr>
         <td>Midterm Mark</td>
         <td>:</td>
@@ -77,7 +82,7 @@
         <td>Total Marks:100 Pass Marks:50</td>
            <td><div id="marksErr"></div></td>
       </tr>   
-      <tr><td colspan="4"><hr/></td></tr>
+      <tr><td colspan="6"><hr/></td></tr>
       <tr>
         <td>Finalterm Mark</td>
         <td>:</td>
@@ -86,9 +91,9 @@
         <td>Total Marks:100 Pass Marks:50</td>
             
       </tr>   
-      <tr><td colspan="4"><hr/></td></tr>
+      <tr><td colspan="6"><hr/></td></tr>
     </table>
-    <hr/>
+    
     <input type="submit" value="Save">    
   </form>
 </fieldset>
@@ -215,11 +220,11 @@ function showsubjectcombo(i){
 
     
 }
-function showstid(){
-  var clas = document.getElementById('class').value;
+// function showstid(){
+//   var clas = document.getElementById('class').value;
     
     
-} 
+// } 
 
 
 function getStudentMark(){

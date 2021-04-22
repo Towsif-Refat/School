@@ -5,8 +5,8 @@
   <title>Login</title>
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="mycss.css" crossorigin="anonymous">
-<link rel="stylesheet" href="registration.css" crossorigin="anonymous">
+<link rel="stylesheet" href="../CSS/mycss.css" crossorigin="anonymous">
+<link rel="stylesheet" href="../CSS/registration.css" crossorigin="anonymous">
     <style>
       label
       {
@@ -46,13 +46,13 @@
     <legend class="legend"><b>Welcome to Login Page</b></legend>
 
     <div class="imgcontainer">
-    <img src="image/reg.jpg" alt="Avatar" class="avatar">
+    <img src="../Admin/View/image/reg.jpg" alt="Avatar" class="avatar">
     </div>
 
     <div class="container" style="background-color:#FAF0E6">
 
-    <p><b><a class="two" href="Login.php">Login as Admin</a></b></p>
-    <p><b><a class="two" href="../Teacher/View/login.php">Login as Teacher</a></b></p>
+    <p><b><a class="two" href="../Admin/View/Login.php">Login as Admin</a></b></p>
+    <p><b><a class="two" href="../Teacher/View/Login.php">Login as Teacher</a></b></p>
     <p><b><a class="two" href="LibrarianReg.php">Login as Librarian</a></b></p>
     <p><b><a class="two" href="StudentReg.php">Login as Student</a></b></p>
       

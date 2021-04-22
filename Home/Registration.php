@@ -5,8 +5,8 @@
   <title>Registration</title>
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="CSS/mycss.css" crossorigin="anonymous">
-<link rel="stylesheet" href="registration.css" crossorigin="anonymous">
+<link rel="stylesheet" href="../CSS/mycss.css" crossorigin="anonymous">
+<link rel="stylesheet" href="../CSS/registration.css" crossorigin="anonymous">
     <style>
       label
       {
@@ -46,7 +46,7 @@
     <legend class="legend"><b>Welcome to Registration Page</b></legend>
 
     <div class="imgcontainer">
-    <img src="image/reg.jpg" alt="Avatar" class="avatar">
+    <img src="../Admin/View/image/reg.jpg" alt="Avatar" class="avatar">
     </div>
 
     <div class="container" style="background-color:#FAF0E6">
@@ -57,7 +57,7 @@
       
     </div>
 
-    <p><b><center>Already Register? <a href="Login.php">Login</a></center>
+    <p><b><center>Already Register? <a href="CLogin.php">Login</a></center>
   
 </form>
 </body>

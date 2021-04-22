@@ -20,7 +20,7 @@
 	 function login($uid,$pass){
 	 		$conn = db_conn();
 
-			  $sql = "SELECT * FROM login where uid='".$uid."' and password='".$pass."'";
+			  $sql = "SELECT * FROM login where uid='".$uid."' and password='".$pass."' and type='t'";
 			$result = mysqli_query($conn, $sql);
 			// return $sql;
 			// return mysqli_num_rows($result);
@@ -34,6 +34,10 @@
 
 			                if($row["status"]=='p'){
 			                	return array("status"=>false, "msg"=>'Please activate your account');
+			                	// return ['false','Please activate your account'];
+			                }
+			                else if($row["status"]=='r'){
+			                	return array("status"=>false, "msg"=>'your account is rejected');
 			                	// return ['false','Please activate your account'];
 			                }
 			                	

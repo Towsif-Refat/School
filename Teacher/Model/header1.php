@@ -21,7 +21,8 @@
 					</td>
 					<td align="right">
                         <a href="../../Home/index.php" >Home</a>&nbsp;|
-						<a href="TeacherRegistration.php">Registration As Teacher</a></th>
+                        <a href="../../Home/CLogin.php" >Login</a>&nbsp;|
+                        <a href="../../Home/Registration.php">Registration</a></th>
 					</td>
 		        </tr>
 	</table>

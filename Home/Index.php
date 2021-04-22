@@ -1,4 +1,4 @@
-<?php include "../Model/conn.php"; ?>
+<?php include "../Admin/Model/conn.php"; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,7 +90,7 @@ li a:hover:not(.active)
 
 	<fieldset class="fieldset" style="height: 300px;">
 		<legend class="legend"><b>NOTICE BOARD</b></legend>
-		<left><img src="image/notice.png" height="100";></left><marquee>
+		<left><img src="../Admin/View/image/notice.png" height="100";></left><marquee>
 
 			<p><b>
 				<?php
@@ -117,9 +117,9 @@ li a:hover:not(.active)
 	<fieldset class="field" style="height: 320px; width: 270px;">
 
 		<legend class="legend"><b>CREATIVE MEDIA</b></legend>
-		<img src="image/gallery.jpg" height="100";><br>
-		<img src="image/annex.jpg" height="100";><br>
-		<img src="image/main.jpg" height="100";><br>
+		<img src="../Admin/View/image/gallery.jpg" height="100";><br>
+		<img src="../Admin/View/image/annex.jpg" height="100";><br>
+		<img src="../Admin/View/image/main.jpg" height="100";><br>
 
 	</fieldset>
 

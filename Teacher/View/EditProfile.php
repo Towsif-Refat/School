@@ -101,14 +101,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
           $errorFlag=1;
          
       }
-      else if(preg_match("/^[0-9]/", ($_POST["address"])))
+      
+
+ else if( strlen($_POST["address"])<4)
       {
         
-         $eaddress = "Please type Letters ";
+         $eaddress = "AT least 4 letter ";
          $errorFlag=1;
           
       }
-
 
 
 
@@ -215,7 +216,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
   <!-- <td>:</td> -->
 
      <td  align="" width="300px">
-          <img width="128"  src="../image/<?php echo $data['picture']; ?>"/>
+          <img width="128"  src="../Upload/<?php echo $data['picture']; ?>"/>
                    
         </td>
 
@@ -253,7 +254,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 				<td>Email :</td>
 				<!-- <td>:</td> -->
 				<td>
-					<input name="email" type="text" onkeyup="checkEmail()" value=" <?php echo $data["email"];?>">
+					<input name="email" type="text" onkeyup="checkEmail()" value="<?php echo $data["email"];?>">
           <span class="error" id="erremail"><?php echo $eemail;?></span>
 				</td>
 				
@@ -287,7 +288,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 				<td valign="top">Date of Birth :</td>
 				<!-- <td valign="top"></td> -->
 				<td>
-					<input name="dob" max='2000-01-01' type="date" value="<?php echo $data["dob"];?>">
+					<input name="dob" onkeyup="checkDob()" type="date" value="<?php echo $data["dob"];?>">
 					<br/>
 					<font size="2"><i>(dd/mm/yyyy)</i></font>
           <span class="error"  id="errdob"><?php echo $edob;?></span>
@@ -364,6 +365,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
  
 
 
+
+  
+
+
   function checkDob(){
    var dob=document.Reg_Form.dob.value;
    var myDate = new Date(dob);
@@ -389,6 +394,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         return false;
       }
   }
+
 
 
 function checkMname(){
@@ -444,7 +450,7 @@ function checkMname(){
 
     function checkAdress(){
      var address = document.Reg_Form.address.value;
-     var addressRegex = /^[A-Za-z]+$/;
+     var addressRegex = /^[a-zA-Z0-9-., ?!]{4,}$/;
       if(address == "")
       {
         document.Reg_Form.address.focus();
@@ -454,7 +460,7 @@ function checkMname(){
       else if(!addressRegex.test(address))
       {
         document.Reg_Form.address.focus();
-        document.getElementById("erraddress").innerHTML = "Use Letter Only";
+        document.getElementById("erraddress").innerHTML = "Use at least 4 Letter";
         return false;
       }
   document.getElementById("erraddress").innerHTML = "";
@@ -467,13 +473,13 @@ function checkMname(){
     function validation()
     {
       document.getElementById("errname").innerHTML="";
-       // document.getElementById("errfname").innerHTML="";
-       //  document.getElementById("errmname").innerHTML="";
-       //   document.getElementById("erremail").innerHTML="";
-       //   document.getElementById("erraddress").innerHTML="";
-       //    document.getElementById("errimg").innerHTML="";
-       //     document.getElementById("errgender").innerHTML="";
-       //      document.getElementById("errdob").innerHTML="";
+      document.getElementById("errfname").innerHTML="";
+      document.getElementById("errmname").innerHTML="";
+      document.getElementById("erremail").innerHTML="";
+      document.getElementById("erraddress").innerHTML="";
+      document.getElementById("errimg").innerHTML="";
+      document.getElementById("errgender").innerHTML="";
+      document.getElementById("errdob").innerHTML="";
      
       var nameRegex = /^[a-zA-Z-' ]*$/;
       // var fnameRegex = /^[a-zA-Z-. ?!]{5,}$/;
@@ -606,10 +612,7 @@ function checkMname(){
         return false;
       }
       //Date Of Birth
-      if(dob == "")
-      {
-        document.Reg_Form.dob.focus();
-        document.getElementById("errgender").innerHTML = "Select your Date Of Birth";
+      if(checkDob()==false){
         return false;
       }
 

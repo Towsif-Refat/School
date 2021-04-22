@@ -22,7 +22,7 @@
 					<!-- <input type="text" name="" value="<?php echo $data['name']; ?>" disabled> -->
 				
 				<td rowspan="7" align="center">
-					<img width="128" style="margin-left: 20px;" src="../image/<?php echo $data['picture']; ?>"/>
+					<img width="128" style="margin-left: 20px;" src="../Upload/<?php echo $data['picture']; ?>"/>
                     <br/>
 				</td>
 			</tr>		

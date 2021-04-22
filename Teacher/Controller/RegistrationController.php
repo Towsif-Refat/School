@@ -106,10 +106,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
           $errorFlag=1;
          
       }
-      else if(preg_match("/^[0-9]/", ($_POST["address"])))
+     else if( strlen($_POST["address"])<4)
       {
         
-         $eaddress = "Please type Letters ";
+         $eaddress = "AT least 4 letter ";
          $errorFlag=1;
           
       }

@@ -4,6 +4,7 @@
 <?php include('../Controller/SendNoticeController.php');?>
 
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,7 +59,7 @@
           </select>
         </td>
         <td></td>
-        <td><div id="classErr"></span></td>
+        <td><div id="classErr"><?php echo $class; ?></div></td>
       </tr>   
       <tr><td colspan="4"><hr/></td></tr>
       
@@ -69,7 +70,7 @@
           <div id="subject"></div> 
         </td>
         <td></td>
-          <td></td><div id="subjectErr"></div>
+          <td></td><div id="subjectErr"><?php echo $subject; ?></div>
         <td></td>
       </tr>   
         
@@ -78,7 +79,7 @@
         <td>Title</td>
         <td>:</td>
         <td><input name="title" type="text " id="title" onkeyup="checkTitle()" onblur="checkTitle()"></td>
-        <td></td><div id="titleErr"></div>
+        <td></td><div id="titleErr"><?php echo $title; ?></div>
         <td></td>
       </tr>   
       <tr><td colspan="4"><hr/></td></tr>
@@ -86,7 +87,7 @@
         <td>Notice</td>
         <td>:</td>
         <td> <textarea name="notice"  rows="5" id="notice" onkeyup="checkNotice()" onblur="checkNotice()"></textarea></td>
-        <td></td><div id="noticeErr"></div>
+        <td></td><div id="noticeErr"><?php echo $notice; ?></div>
         <td></td>
       </tr>   
       <tr><td colspan="4"><hr/></td></tr>

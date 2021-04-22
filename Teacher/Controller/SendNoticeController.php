@@ -1,6 +1,6 @@
 <?php
 
-$class = $subject = $nsubject = $message = "";
+$class = $subject = $title = $notice= $nsubject = $message = "";
 $eclass = $esubject = $ensubject = $enmessage = "";
 $error = $message = "";
 $errorFlag=0;
@@ -9,17 +9,38 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
   {  
    
 
+      if(empty($_POST["class"]))  
+      {  
+           $eclass = "Please select a class";  
+           $errorFlag=1;
+      } 
+      if(empty($_POST["subject"]))  
+      {  
+           $esubject = "Please select a Subject"; 
+           $errorFlag=1; 
+      }  
+
       if(empty($_POST["title"]))  
       {  
-           $ensubject = "Enter notice subject"; 
+           $ensubject = "Enter notice title"; 
            $errorFlag=1; 
+      }
+        if(strlen($_POST["title"])<3)  
+      {  
+           $ensubject = "Title must be at least 3 character";  
+           $errorFlag=1;
       }
     
       if(empty($_POST["notice"]))  
       {  
-           $enmessage = "Please write the Message body";  
+           $enmessage = "Please write the notice body";  
            $errorFlag=1;
       } 
+      if(strlen($_POST["notice"])<5)  
+      {  
+           $enmessage = "Notice must be at least 5 character";  
+           $errorFlag=1;
+      }
       if($errorFlag==0)
       { 
         // $class,$subject,$title,$notice
